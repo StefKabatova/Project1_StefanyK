@@ -29,6 +29,7 @@ $(document).ready(function(){
          return console.log("right");
        },
        incorrect: function(){
+         score += 0
          return console.log("wrong");
        },
        content: function(i){
@@ -48,7 +49,7 @@ $(document).ready(function(){
       var msg =  gameQuestRound1.content(counter);
       // console.log(msg)
       question.text(msg)
-      
+
       for (i=0;i<=3; i++){
         var option = gameQuestRound1.options(counter)[i];
           answers.each(function(){
@@ -56,6 +57,23 @@ $(document).ready(function(){
             })
           }
         };
+
+
+        function validity(){
+           if($(this).is("#correct")){
+            gameQuestRound1.correct();
+          }else{
+            gameQuestRound1.incorrect();
+          }
+        }
+
+
+        beginButton.on("click", arrayValue)
+        answers.on("click", validity);
+        next.on("click" ,function(){
+            counter += 1;
+            arrayValue();
+          });
 
 
 
