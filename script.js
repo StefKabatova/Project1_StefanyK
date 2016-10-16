@@ -10,6 +10,7 @@ $(document).ready(function(){
   var next = $("#next");
   var container= $("#gameContainer");
   var categories = $(".quesType");
+  var popUp = $("#answerMsg")
 
 
   var roundNumb = 1;
@@ -93,6 +94,7 @@ $(document).ready(function(){
 
      function addmsg(){
 
+      //  checks for id of button that was clicked
        if($(this).is("#enews")){
         console.log($(this))
         category = entertainment
@@ -108,41 +110,39 @@ $(document).ready(function(){
          category= stem
          msg = category.content(counter);
        }
+      //  adds question and answers based on what id was provided
        question.text(msg);
 
        for (i=0;i<=3; i++){
          var option = category.options(counter)[i];
            answers.each(function(){
            $(answers[i]).html(option)
-             })
-           }
-
-     }
+            })
+          };
+        }
 
 
       // checks correctness of the answers
-
         function validity(){
            if($(this).is("#correct")){
             category.correct();
+            popUp.show()
           }else{
             category.incorrect();
+            next.show()
           }
         }
 
-        categories.on("click", addmsg)
 
-
-
+        categories.on("click", addmsg);
         answers.on("click", validity);
+        popUp.hide()
         next.on("click" ,function(){
+          popUp.hide()
             roundNumb += 1
             counter += 1;
-            arrayValue();
+            addmsg();
           });
-
-
-
 
 });
 

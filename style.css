@@ -54,10 +54,14 @@ h1{
   display:block;
 }
 
-
-
 .quesType{
   background-color: pink;
   padding: 5px;
   border: dotted;
+}
+
+#answerMsg{
+  background: green;
+  position: relative;
+  float:left;
 }
