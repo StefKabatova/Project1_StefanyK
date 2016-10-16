@@ -27,7 +27,7 @@ h1{
   width: auto;
   height: 400px;
   text-align: center;
-  display: none;
+  /*display: none;*/
 }
 
 .keepers{
