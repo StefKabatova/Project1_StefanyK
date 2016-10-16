@@ -8,9 +8,9 @@ $(document).ready(function(){
   var question = $("#question")
   var answers = $(".answers")
   var next = $("#next");
+  var container= $("#gameContainer")
 
-
-  var roundNumb = 0;
+  var roundNumb = 1;
   var counter = 0;
   var msg;
   var option;
@@ -19,13 +19,13 @@ $(document).ready(function(){
   // set of first questions
   var gameQuestRound1 ={
         question:[" What are the two main flavors in Nutella? ",
-        " one", "two"],
+        " What does wi-fi stand for?", "two"],
         answer:[["Chocolate & Hazelnut",
          "Cocoa and Hazelnut",
-         "Dark Chocolate & Vanilla"], [ "poop ", "poop", "poop"]],
+         "Dark Chocolate & Vanilla"], [ "Wireless-filter ", "Wire-film", "Wireless-fidelity"]],
        correct: function (){
          score += 100
-         console.log(score)
+         $("#score").html("Score" + " " + score)
          return console.log("right");
        },
        incorrect: function(){
@@ -43,17 +43,17 @@ $(document).ready(function(){
      }
 
 
-
      // sets questions and answers on screen
       function arrayValue(){
+        round.text("Round: " + roundNumb)
       var msg =  gameQuestRound1.content(counter);
       // console.log(msg)
-      question.text(msg)
+      question.text(msg);
 
       for (i=0;i<=3; i++){
         var option = gameQuestRound1.options(counter)[i];
           answers.each(function(){
-          $(answers[i]).text(option)
+          $(answers[i]).html(option)
             })
           }
         };
@@ -68,13 +68,15 @@ $(document).ready(function(){
         }
 
 
-        beginButton.on("click", arrayValue)
+        beginButton.on("click", function(){
+            container.css("display", 'block')
+            arrayValue()});
+
         answers.on("click", validity);
         next.on("click" ,function(){
+            roundNumb += 1
             counter += 1;
             arrayValue();
           });
-
-
 
 });

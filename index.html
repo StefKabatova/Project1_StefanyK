@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="style.css" rel="stylesheet" type="text/css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+  <script src="script.js"></script>
+  <title>Test Your Brain</title>
+</head>
+<body>
+  <header>
+  <h1>Trivia</h1>
+  <p> Welcome to MAD Trivia, a brain-challenges game that testes your knowledge about the world. </p>
+</header>
+
+
+  <section>
+  <p>How it Works:</p>
+  <ul>
+    <li>There is a total of 3 questions in each round and a total of 3 rounds per category.  </li>
+    <li> Each correct question is worth 100 points. Top score is of 1200 points.  </li>
+    <li> As you move up  to round 3, each incorrect question is -20 points. </li>
+  </ul>
+  </section>
+
+    <button id="start" type="button" name="begining">Start</button>
+
+    <div id="categories">
+      <div class="quesType">Entertainment</div>
+      <div class="quesType">Geography</div>
+      <div class="quesType"> Science and Technology </div>
+
+    </div>
+
+  <section id="gameContainer">
+    <p id="score" class="keepers">Score</p>
+      <div id="round" class="keepers"></div>
+
+      <div id="container">
+          <p id="question"></p>
+          <div class="answers"> </div>
+          <div class="answers" id="correct"></div>
+          <div class="answers"> </div>
+      </div>
+
+    <button id="next">next</button>
+    </section>
+
+
+
+
+  <div id="Bonus">
+
+  </div>
+
+
+
+</body>
+</html>

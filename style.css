@@ -1,0 +1,63 @@
+
+body{
+  margin: 0 10%;
+  /*background-image: url("pexels-photo-colors.jpeg");*/
+  /*background-size:cover;*/
+  font-size: 18px;
+
+}
+header{
+  text-align: center;
+}
+h1{
+  font-family: arial black;
+}
+
+#categories{
+  width:  auto;
+  height: 50px;
+  display:flex;
+  justify-content: space-around;
+  margin-bottom: 30px;
+
+}
+
+#gameContainer{
+  border: solid;
+  width: auto;
+  height: 400px;
+  text-align: center;
+  display: none;
+}
+
+.keepers{
+  background: orange;
+}
+
+#container{
+  border: solid;
+}
+.answers{
+  margin: 10px 20%;
+  background: yellow;
+
+}
+
+#start{
+  height:30px;
+  width: 60px;
+  text-align: center;
+  border-radius: 3px;
+  margin: 20px auto;
+  color: white;
+  background: skyblue;
+  display:block;
+}
+
+
+
+.quesType{
+  background-color: pink;
+  padding: 5px;
+  border: dotted;
+}
