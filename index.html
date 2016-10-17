@@ -11,53 +11,61 @@
 </head>
 <body>
   <header>
-  <h1>Trivia</h1>
-  <p> Welcome to MAD Trivia, a brain-challenges game that testes your knowledge about the world. </p>
+
 </header>
 
 
-  <section>
+  <section id="gamerules">
+  <p class="welcome"> Welcome to MAD Trivia, a brain-challenges game that testes your knowledge about the world. </p>
   <p>How it Works:</p>
   <ul>
-    <li>There is a total of 3 questions in each round and a total of 3 rounds per category.  </li>
-    <li> Each correct question is worth 100 points. Top score is of 1200 points.  </li>
-    <li> As you move up  to round 3, each incorrect question is -20 points. </li>
+    <li>There is a total of 3 questions per category and a total of 3 categories. </li>
+    <li> Each correct question is worth 100 points. Top score is of 1200 points. </li>
   </ul>
   </section>
 
-    <!-- <button id="start" type="button" name="begining">Start</button> -->
+    <button id="start" type="button" name="begining">Start</button>
 
     <div id="categories">
       <div id="enews" class="quesType">Entertainment</div>
       <div id="geo" class="quesType">Geography</div>
       <div id="stem" class="quesType"> Science and Technology </div>
-
     </div>
 
   <section id="gameContainer">
-    <p id="score" class="keepers">Score</p>
-      <div id="round" class="keepers"></div>
+      <div id="score" class="flexItem"></div>
+      <div id="round" class="flexItem">Round</div>
 
-      <div id="container">
+      <div id="container" class="flexItem">
           <p id="question"></p>
           <div class="answers"> </div>
           <div class="answers" id="correct"></div>
           <div class="answers"> </div>
       </div>
 
-      <div id="answerMsg">
-        <p> You are Correct!!</p>
-        <p> Sorry, maybe next time. </p>
-        <button id="next">next</button>
+      <div id="answerMsg" class="flexItem">
+        <p id="right"> </p>
+        <p id="wrong"></p>
+        <button id="continueE">Continue</button>
+        <!-- <button id="continueG">Continue</button>
+        <button id="continueT">Continue</button> -->
       </div>
     </section>
 
+      <button id="next">next</button>
+
+    <footer>
+
+      <div id="Bonus">
+      hello
+      </div>
+    </footer>
 
 
 
-  <div id="Bonus">
 
-  </div>
+
+
 
 
 

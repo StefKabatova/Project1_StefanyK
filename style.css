@@ -1,46 +1,82 @@
 
 body{
   margin: 0 10%;
-  /*background-image: url("pexels-photo-colors.jpeg");*/
-  /*background-size:cover;*/
-  font-size: 18px;
+  font-size: 20px;
+  background:	#ff9966;
+  /*background-color:hsl(20, 100%, 70%);*/
 
 }
-header{
-  text-align: center;
+
+p.welcome:first-letter{
+  font-size: 150%;
 }
+
 h1{
   font-family: arial black;
+  font-size: 40px;
+  text-shadow: 2px 2px 7px #666666;
+  letter-spacing: .1em;
+}
+
+#gamerules p{
+  font-weight: bold;
+
 }
 
 #categories{
   width:  auto;
-  height: 50px;
   display:flex;
   justify-content: space-around;
   margin-bottom: 30px;
+  flex-wrap: wrap;
 
+}
+
+.quesType{
+  background-color: pink;
+  padding: 5px;
+  width:200px;
+  border: dotted;
+  text-align: center;
 }
 
 #gameContainer{
+  background: lightblue;
   border: solid;
   width: auto;
-  height: 400px;
+  height: 500px;
   text-align: center;
-  /*display: none;*/
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
 }
 
-.keepers{
-  background: orange;
+.flexItem{
+  /*margin: 2px 10px;*/
+}
+
+#score{
+  background: yellow;
+  width:200px;
+  height:50px;
+}
+
+#round{
+  background: yellow;
+  width:200px;
+  height:50px;
 }
 
 #container{
   border: solid;
+  width: 700px;
+  height: 250px;
 }
 .answers{
   margin: 10px 20%;
   background: yellow;
-
+  opacity: 0.4;
 }
 
 #start{
@@ -48,20 +84,23 @@ h1{
   width: 60px;
   text-align: center;
   border-radius: 3px;
-  margin: 20px auto;
-  color: white;
+  margin: 10px auto;
   background: skyblue;
   display:block;
 }
 
-.quesType{
-  background-color: pink;
-  padding: 5px;
-  border: dotted;
-}
+
 
 #answerMsg{
+  height:150px;
+  width:300px;
   background: green;
-  position: relative;
-  float:left;
+  margin: 0 auto;
+  /*border: solid;*/
+  border-radius: 10px;
+  position:absolute;
+  float: left;
+
 }
+
+/* can use boxshadows , sticky footer , */
