@@ -143,7 +143,6 @@ $(document).ready(function(){
 
            if($(this).children().first().is("#correct")){
 
-
              if(counter>=2){
 
                 cont_button.text("Try another category");
