@@ -14,7 +14,9 @@ $(document).ready(function(){
   var cont_button = $("#continueE");
 
 
-  var roundNumb = 1;
+  //James's Note: make stem, geography, entertainment
+  // var gameObjects = [stem, geography, entertainment] ???
+  var roundNumb = 0;
   var counter = 0;
   var msg;
   var option;
@@ -27,19 +29,20 @@ $(document).ready(function(){
         question:["The sounds made by the Brachiosaurs in Jurassic Park were a combination of ",
          " What type of candy does Elliott use to persuade E.T to come into his room? ",
          "What is the name of Jon Snow’s Direwolf ?"],
-        answer:[["Truck and a horse",
-         "Giraffe and a hippo",
-         "Whales and Donkies"], [ "Skittles ", "M&M'S", "Reese's Pieces"],
-          ["Grey Wind", "Graham", "Ghost"]],
+        answer:[
+          ["Truck and a horse", "Giraffe and a hippo", "<p id='correct'>Whales and Donkies</p>"],
+          [ "Skittles ", "M&M'S", "<p id='correct'>Reese's Pieces</p>"],
+          ["Grey Wind", "Graham", "<p id='correct'>Ghost</p>"]
+        ],
        correct: function (){
          score += 100
          $("#score").html("Score" + " " + score)
-         $("#right").text("You Are Correct!!")
+
          return console.log("right");
        },
        incorrect: function(){
          score += 0
-         $("#wrong").text("WRONG!!!")
+
          return console.log("wrong");
        },
        content: function(i){
@@ -56,9 +59,10 @@ $(document).ready(function(){
      question:[ "What language do the locals speak in Bogota, Colombia?",
      "What is the Capital of Qatar",
      "What is the lasrgest country in the World"],
+
      answer:[["French","<p id='correct'>Spanish</p>","Arabic"],
-     ["Stockholm", "Cairo", "Doha"],
-     ["China", "India", "Russia"]],
+     ["Stockholm", "Cairo","<p id='correct'>Doha</p>"],
+     ["China", "India", "<p id='correct'>Russia</p>"]],
 
      content: function(i){
        console.log(this)
@@ -70,20 +74,21 @@ $(document).ready(function(){
      correct: function (){
        score += 100
        $("#score").html("Score" + " " + score)
-       $("#right").text("You Are Correct!!")
+
        return console.log("right");
      },
      incorrect: function(){
        score += 0
+
        return console.log("wrong");
      },
     }
 
     var stem = {
     question:[" What does wi-fi stand for?", "The Earth is how many miles away from the sun?", "A shrimp's heart is located in which part of its body?"],
-    answer:[[ "Wireless-filter ", "Wire-film", "Wireless-fidelity"],
-    ["256 mil. miles away ","92.96 mil. miles", "86.54 mil miles", "82.46 mil. miles"],
-    ["head", "stomach","tail"]],
+    answer:[[ "Wireless-filter ", "Wire-film", "<p id='correct'>Wireless-fidelity</p>"],
+    ["<p id='correct'>92.96 miles</p>", "86.54 mil miles", "82.46 mil. miles"],
+    ["<p id='correct'>head</p>", "stomach","tail"]],
     content: function(i){
       console.log(this)
       return this.question[i]
@@ -93,25 +98,32 @@ $(document).ready(function(){
     },
     correct: function (){
       score += 100
-      $("#score").html("Score"+ score)
+      $("#score").html("Score:" + " " + score)
+
       return console.log("right");
     },
     incorrect: function(){
       score += 0
+
       return console.log("wrong");
     },
    }
 
-     // sets questions and answers on screen
+    // Initiates game and shows categories
+    beginButton.on("click", function(){
+       categories.show(1000)
+
+     })
+
+     // sets questions and answers on screen based on category
 
      function addmsg(category){
        category = category
        msg = category.content(counter)
 
-      //  adds question and answers based on what id was provided
        question.text(msg);
 
-       for (i=0;i<=3; i++){
+       for (i=0;i<3; i++){
          var option = category.options(counter)[i];
            answers.each(function(){
            $(answers[i]).html(option)
@@ -120,25 +132,53 @@ $(document).ready(function(){
         }
 
 
-      // checks correctness of the answers
+      // checks response for correctness
         function validity(){
-           if($(this).is("#correct")){
+
+           if($(this).children().first().is("#correct")){
+             console.log(this)
+
              if(counter>=2){
                cont_button.hide();
              }
             category.correct();
+              $("#right").text("You Are Correct!!")
             popUp.show()
 
           }else{
+            console.log(this)
 
             if(counter>=2){
               cont_button.hide();
             }
             category.incorrect();
+            $("#right").text("WRONG!!!")
             popUp.show()
           }
+
         }
 
+
+        // identifies which category was selected
+          categories.on("click", function(){
+
+            if($(this).is("#enews")){
+            console.log($(this))
+            category = entertainment;
+            addmsg(category);
+              }
+            else if($(this).is("#geo")){
+            console.log($(this))
+            category= geography;
+            addmsg(category);
+              }
+            else{
+            category= stem
+            addmsg(category);
+                 }
+            });
+
+        // continue button to display following button.
         cont_button.on("click" ,function(){
           roundNumb += 1
           counter += 1;
@@ -146,30 +186,13 @@ $(document).ready(function(){
           addmsg(category);
           });
 
+        // begins with a hidden continue button
         popUp.hide()
 
+        // hides categories to be displayed after start button
         categories.hide()
 
-        categories.on("click", function(){
-
-          if($(this).is("#enews")){
-           console.log($(this))
-           category = entertainment;
-           addmsg(category);
-          }
-          else if($(this).is("#geo")){
-          console.log($(this))
-          category= geography;
-          addmsg(category);
-         }
-         else{
-           category= stem
-           addmsg(category);
-         }
-
-        });
-
-
+        // changes opacity based on users engagement with the element
         answers.hover(function(){
           $(this).fadeTo('fast',1)},
           function(){
@@ -180,40 +203,7 @@ $(document).ready(function(){
 
 
 
-          beginButton.on("click", function(){
-            categories.show(1000)
-          })
+
+
 
 });
-//
-// function addmsg(){
-//
-//  //  checks for id of button that was clicked
-//   if($(this).is("#enews")){
-//    console.log($(this))
-//    category = entertainment
-//    continueButton = "first";
-//    msg = category.content(counter);
-//   }
-//
-//   else if($(this).is("#geo")){
-//   console.log($(this))
-//   category= geography
-//
-//   msg = category.content(counter);
-//   }
-//   else{
-//     category= stem
-//     msg = category.content(counter);
-//   }
-//
-//  //  adds question and answers based on what id was provided
-//   question.text(msg);
-//
-//   for (i=0;i<=3; i++){
-//     var option = category.options(counter)[i];
-//       answers.each(function(){
-//       $(answers[i]).html(option)
-//        })
-//      };
-//    }

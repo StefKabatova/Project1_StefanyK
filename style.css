@@ -1,106 +1,129 @@
 
 body{
+  background:#8cb3d9;
+  /*#6699ff;*/
+  /*background-color:hsl(220, 70%, 80%);*/
+}
+#page{
   margin: 0 10%;
-  font-size: 20px;
-  background:	#ff9966;
-  /*background-color:hsl(20, 100%, 70%);*/
-
+  text-align: center;
 }
 
-p.welcome:first-letter{
-  font-size: 150%;
-}
-
-h1{
-  font-family: arial black;
-  font-size: 40px;
-  text-shadow: 2px 2px 7px #666666;
+#gamerules{
+  font-size: 18px;
   letter-spacing: .1em;
 }
-
-#gamerules p{
+span{
   font-weight: bold;
+}
 
+#gameNameContainer{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+.gameName{
+  margin:8px;
+  height:90px;
+  width:50px;
+  text-align: center;
+  font-size: 70px;
+}
+div.set1{
+  background-color: yellow;
+  opacity:.9;
+}
+div.set2{
+  background-color:#ffa64d;
+  border-radius: 5px;
+  opacity:.9;
+}
+
+#secondRound{
+  background-color: #696969;
+  font-size: 20px;
+  color:white;
+}
+
+#start{
+  height:40px;
+  width: 80px;
+  text-align: center;
+  border-radius: 5px;
+  margin: 25px auto;
+  background-color: yellow;
+  opacity:.8;
+  display:block;
+  font-size: 20px;
 }
 
 #categories{
   width:  auto;
   display:flex;
   justify-content: space-around;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   flex-wrap: wrap;
 
 }
 
 .quesType{
-  background-color: pink;
+  font-size: 18px;
+  margin-top: 15px;
+  background-color:#ff8080;
   padding: 5px;
   width:200px;
-  border: dotted;
+  border:1.5px dotted;
   text-align: center;
 }
 
 #gameContainer{
-  background: lightblue;
-  border: solid;
+  background: #ffff66;
+  border-radius: 5px;
   width: auto;
-  height: 500px;
+  height: 350px;
   text-align: center;
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-around;
 }
 
 .flexItem{
-  /*margin: 2px 10px;*/
+  font-size: 20px;
+
 }
 
 #score{
-  background: yellow;
   width:200px;
-  height:50px;
+  background: #4da6ff;
+  font-weight: bolder;
 }
 
-#round{
-  background: yellow;
-  width:200px;
-  height:50px;
-}
 
 #container{
-  border: solid;
-  width: 700px;
+  width: 70%;
   height: 250px;
 }
 .answers{
   margin: 10px 20%;
-  background: yellow;
-  opacity: 0.4;
+  background: #4da6ff;
+  opacity: 0.5;
 }
-
-#start{
-  height:30px;
-  width: 60px;
-  text-align: center;
-  border-radius: 3px;
-  margin: 10px auto;
-  background: skyblue;
-  display:block;
-}
-
-
 
 #answerMsg{
-  height:150px;
+  height:100px;
   width:300px;
-  background: green;
+  background:#008040;
   margin: 0 auto;
-  /*border: solid;*/
   border-radius: 10px;
   position:absolute;
   float: left;
+}
 
+footer{
+  margin:20px;
+  text-align: center;
 }
 
 /* can use boxshadows , sticky footer , */
