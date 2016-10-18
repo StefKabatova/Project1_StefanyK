@@ -16,13 +16,14 @@ $(document).ready(function(){
 
   //James's Note: make stem, geography, entertainment
   // var gameObjects = [stem, geography, entertainment] ???
-  var roundNumb = 0;
+  var round = 0;
   var counter = 0;
   var msg;
   var option;
   var score = 0;
   var category;
   var continueButton;
+
 
   // set of content for entertainment category
   var entertainment ={
@@ -46,7 +47,7 @@ $(document).ready(function(){
          return console.log("wrong");
        },
        content: function(i){
-         console.log(this)
+
          return this.question[i]
 
        },
@@ -118,6 +119,7 @@ $(document).ready(function(){
      // sets questions and answers on screen based on category
 
      function addmsg(category){
+       round += 1
        category = category
        msg = category.content(counter)
 
@@ -128,28 +130,36 @@ $(document).ready(function(){
            answers.each(function(){
            $(answers[i]).html(option)
             })
+
+
+
           };
         }
 
 
       // checks response for correctness
         function validity(){
+          cont_button.text("continue");
 
            if($(this).children().first().is("#correct")){
-             console.log(this)
+
 
              if(counter>=2){
-               cont_button.hide();
+
+                cont_button.text("Try another category");
+                cont_button.css("font-weight", "bold")
+
              }
-            category.correct();
+             category.correct();
               $("#right").text("You Are Correct!!")
-            popUp.show()
+              popUp.show()
 
           }else{
-            console.log(this)
 
             if(counter>=2){
-              cont_button.hide();
+              cont_button.text("Try another category");
+              cont_button.css("font-weight", "bold");
+
             }
             category.incorrect();
             $("#right").text("WRONG!!!")
@@ -159,8 +169,17 @@ $(document).ready(function(){
         }
 
 
+
+
         // identifies which category was selected
           categories.on("click", function(){
+
+            if (round >3){
+             round = 0;
+             counter = 0  ;
+             console.log(round)
+           }
+
 
             if($(this).is("#enews")){
             console.log($(this))
@@ -180,11 +199,16 @@ $(document).ready(function(){
 
         // continue button to display following button.
         cont_button.on("click" ,function(){
-          roundNumb += 1
-          counter += 1;
+          if(round<3){
+            counter += 1;
+          }
           popUp.hide(800)
+          console.log(category);
           addmsg(category);
-          });
+
+        });
+
+
 
         // begins with a hidden continue button
         popUp.hide()
