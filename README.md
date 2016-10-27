@@ -1,3 +1,4 @@
+<!-- Thorough planning and documentation!  -->
 #Project 1
 
 ##Option -Self-scoring Trivia
@@ -23,7 +24,7 @@ Multiple players
 Engaging graphics and text display  
 
 
-<<Gold>>
+##<<Gold>>
 Quit current game and pick another category
 Game Hints
 Time limit
