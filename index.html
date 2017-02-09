@@ -7,67 +7,52 @@
   <link href="style.css" rel="stylesheet" type="text/css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
   <script src="script.js"></script>
-  <title>Test Your Brain</title>
+  <title>Trivia_Game</title>
 </head>
 <body>
-  <div id="page">
+
   <header>
-    <div id="gameNameContainer">
-    <div class="gameName set1">T</div>
-    <div class="gameName set2">R</div>
-    <div class="gameName set1">I</div>
-    <div class="gameName set2">V</div>
-    <div class="gameName set1">I</div>
-    <div class="gameName set2">A</div>
-  </div>
-</header>
+   <div id="gameNameContainer">
+   <div class="gameName set1">T</div>
+   <div class="gameName set2">R</div>
+   <div class="gameName set1">I</div>
+   <div class="gameName set2">V</div>
+   <div class="gameName set1">I</div>
+   <div class="gameName set2">A</div>
+   </div>
+  </header>
 
+   <p id="intro">Welcome to Trivia, where your knowledge of the trivial actually matters!</p>
+    <!-- <h3> Pick a Category to Begin </h3> -->
 
-  <div  id="gamerules">
-  <p class="welcome"> Welcome to MAD Trivia, where your knowledge of the trivial actually maters! </p>
-  <p><span>How it Works:</span><br/>
-    Each category has a total of 3 questions.<br/>
-    Each correct question is worth 100 points.
-  </p>
-</div>
-
-
-
-    <div>
-    <button id="start" type="button" name="begining">Start</button>
-
-    <div id="categories">
-      <div id="enews" class="quesType">Entertainment</div>
-      <div id="geo" class="quesType">Geography</div>
-      <div id="stem" class="quesType"> Science and Technology </div>
-    </div>
+    <div id="category_box" >
+      <div id="enews"class="categories" >Entertainment</div>
+      <div id="geo" class="categories">Geography</div>
+      <div id="stem" class="categories"> Science/Technology </div>
   </div>
 
+     <p id="category"class="content"></p>
+     <p id="point" class="content"></p>
 
 
-  <div id="gameContainer">
-    <p id="score" class="flexItem"></p>
-    <div id="container" class="flexItem">
-        <p id="question"></p>
-        <div class="answers"></div>
-        <div class="answers"></div>
-        <div class="answers"></div>
-    </div>
-      <div id="answerMsg" class="flexItem">
-        <p id="right"></p>
-        <button id="continueE">next</button>
-      </div>
-  
+  <div id="gamebox">
+  <div id="question_container">
+       <p id="question"></p>
+      <button id="next_button">Next</button>
   </div>
 
-    <footer>
+    <div class="letter">A</div>
+    <div id="a" class="options"></div>
 
-      Stefany K
-    </footer>
+    <div class="letter">B</div>
+    <div id="b" class="options"></div>
 
+    <div class="letter">C</div>
+    <div id="c" class="options"></div>
+
+    <div class="letter">D</div>
+    <div id="d" class="options"></div>
   </div>
-
-
 
 
 </body>
